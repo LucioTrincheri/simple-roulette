@@ -35,6 +35,8 @@ int main() {
     }
 
     // For each spin, generate a winning number. Then for each player we get the bet, check if is valid, find if the player won or not and then update the balance and log the result
+    // The code to check if the number is a winner and to add or remove balance could be run on a different thread for 
+    // each player, but the time complexity of the code is too small to justify the overhead when creating the threads
     for (int spin = 0; spin < NUM_SPINS; spin++) {
         int winnerNumber = rand() % 37;
         file << "Spin " << spin + 1 << ": " << winnerNumber << std::endl;
